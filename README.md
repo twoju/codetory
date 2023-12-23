@@ -11,9 +11,9 @@
 ### Frontend
 |Vite|React|TypeScript|NodeJS|
 |:--------:|:--------:|:--------:|:------:|
-|![vite](https://images.app.goo.gl/Jm35VgaiXCRYDxfY9)|![react](https://images.app.goo.gl/Hy1XfRk2SqY2WpAR9)|![typescript](https://images.app.goo.gl/d1bBVeGmjpPHMJbeA)|![nodejs](https://images.app.goo.gl/RKEkhyAvDPX9g5JB9)|
+|<img src="assets/vite.svg" width="100" />|<img src="assets/react.png" width="100" />|<img src="assets/ts.png" width="100" />|<img src="assets/nodejs.png" width="100" />|
 
 ### Backend
 |FastAPI|
 |:--------:|
-|![vite](https://images.app.goo.gl/Jm35VgaiXCRYDxfY9)|
+|<img src="assets/fastapi.svg" width="100" />|
