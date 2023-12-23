@@ -1,1 +1,19 @@
 # codetory
+### 한국사와 컴퓨팅 사고력 연계 학습을 위한 초등학생 대상 게임 기반 교육용 서비스
+
+## 🔗 연구 논문
+[한국사와 코딩을 연계한 초등학생 대상 교육용 앱 서비스 - 스토리텔링과 비주얼씽킹 접목을 중심으로](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11444894)
+
+## 💡 프로젝트 개요
+디자인 학부 졸업 프로젝트로 초등학생을 위한 앱 서비스를 기획, 디자인하고 프로토타입으로 구현한 경험이 있습니다. 오프라인 전시에서 사용자와 상호작용하기 위해 코드 기반 프로토타이핑 툴인 Protopie 를 활용해서 서비스를 제공했습니다. 개발을 학습한 후 **프로토타입이 아닌 실제 개발을 통해 구현**하고자 하는 마음으로 시작했습니다.
+
+## 기술 스택
+### Frontend
+|Vite|React|TypeScript|NodeJS|
+|:--------:|:--------:|:--------:|:------:|
+|![vite](https://images.app.goo.gl/Jm35VgaiXCRYDxfY9)|![react](https://images.app.goo.gl/Hy1XfRk2SqY2WpAR9)|![typescript](https://images.app.goo.gl/d1bBVeGmjpPHMJbeA)|![nodejs](https://images.app.goo.gl/RKEkhyAvDPX9g5JB9)|
+
+### Backend
+|FastAPI|
+|:--------:|
+|![vite](https://images.app.goo.gl/Jm35VgaiXCRYDxfY9)|
