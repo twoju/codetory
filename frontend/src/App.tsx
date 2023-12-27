@@ -1,13 +1,16 @@
-import './App.css';
-import Router from './router/Router';
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import Router from './router/Router';
+import GlobalStyle from './styles/GlobalStyle';
 
 function App() {
   return (
-    <div css={Layout}>
-      <Router />
-    </div>
+    <>
+      <div css={Layout}>
+        <GlobalStyle />
+        <Router />
+      </div>
+    </>
   );
 }
 

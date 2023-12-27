@@ -1,8 +1,8 @@
-import { css } from '@emotion/react';
+import { Global, css } from '@emotion/react';
 import { ColorSystem } from './ColorSystem';
 import emotionReset from 'emotion-reset';
 
-export const GlobalStyle = css`
+const style = css`
   ${emotionReset}
   ${ColorSystem};
 
@@ -10,6 +10,7 @@ export const GlobalStyle = css`
   body {
     box-sizing: border-box;
     font-family: 'Pretendard';
+    font-size: 10px;
     --ms-overflow-style: none;
     width: 100%;
   }
@@ -18,3 +19,9 @@ export const GlobalStyle = css`
     display: none;
   }
 `;
+
+const GlobalStyle = () => {
+  return <Global styles={style} />;
+};
+
+export default GlobalStyle;

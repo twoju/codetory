@@ -7,5 +7,6 @@ export const ColorSystem = css`
     --CT_GRAY3: #555555;
     --CT_GRAY2: #cfcfcf;
     --CT_GRAY1: #dbdbdb;
+    --CT_WHITE: #ffffff;
   }
 `;
