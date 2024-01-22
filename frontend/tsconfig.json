@@ -15,10 +15,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
     "types": ["@emotion/react/types/css-prop"],
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["src/*"],
-    },
 
     /* Linting */
     "strict": true,
@@ -27,5 +23,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", ".storybook/*", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

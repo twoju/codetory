@@ -1,7 +1,4 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-import type { InlineConfig } from 'vite';
-const path = require('path');
-const tsconfigPaths = require('vite-tsconfig-paths').default;
 
 const config: StorybookConfig = {
   stories: [
@@ -22,15 +19,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: true,
   },
-  viteFinal: async (config: InlineConfig): Promise<InlineConfig> => {
-    config.plugins?.push(
-      tsconfigPaths({
-        projects: [
-          path.resolve(path.dirname(__dirname), 'src', '../tsconfig.json'),
-        ],
-      }),
-    );
-    return config;
-  },
+  staticDirs: ['../public'],
 };
 export default config;

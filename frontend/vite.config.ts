@@ -9,8 +9,5 @@ export default defineConfig({
       jsxImportSource: '@emotion/react',
     }),
   ],
-  resolve: {
-    alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-  },
   assetsInclude: ['/sb-preview/runtime.js'],
 });

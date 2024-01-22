@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { main } from '@src/styles/ColorSystem';
+import { main } from '../../../../styles/ColorSystem';
 
 interface Props {
   text: string;

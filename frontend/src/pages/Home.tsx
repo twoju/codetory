@@ -1,4 +1,4 @@
-import Button from '../components/shared/atoms/Button';
+import Button from "../components/shared/atoms/Button";
 
 function Home() {
   return (
