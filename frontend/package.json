@@ -12,8 +12,10 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.23.3",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@storybook/addon-themes": "^7.6.10",
     "@storybook/builder-vite": "^7.6.6",
     "babel-plugin-emotion": "^11.0.0",
     "emotion-reset": "^3.0.1",
@@ -45,6 +47,7 @@
     "prettier": "^3.1.1",
     "storybook": "^7.6.6",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8"
+    "vite": "^5.0.8",
+    "vite-tsconfig-paths": "^4.3.1"
   }
 }

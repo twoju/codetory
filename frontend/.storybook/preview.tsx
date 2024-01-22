@@ -17,6 +17,6 @@ export const preview: Preview = {
         <GlobalStyle />
         <Story />
       </>
-    ),
+    ),                     
   ],
 };

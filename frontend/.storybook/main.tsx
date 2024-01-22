@@ -26,7 +26,7 @@ const config: StorybookConfig = {
     config.plugins?.push(
       tsconfigPaths({
         projects: [
-          path.resolve(path.dirname(__dirname), 'src', 'tsconfig.json'),
+          path.resolve(path.dirname(__dirname), 'src', '../tsconfig.json'),
         ],
       }),
     );
