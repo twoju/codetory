@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { main } from '@src/styles/ColorSystem';
 
 interface Props {
   text: string;
@@ -13,8 +14,8 @@ const BtnStyle = css`
   text-align: center;
   padding: 2rem 0;
   border-radius: 0.8rem;
-  background-color: var(--CT_MAIN);
-  color: var(--CT_WHITE);
+  background-color: ${main};
+  color: white;
   font-size: 2rem;
   font-weight: 700;
 `;

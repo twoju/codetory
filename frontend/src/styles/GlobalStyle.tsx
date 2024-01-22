@@ -1,10 +1,8 @@
 import { Global, css } from '@emotion/react';
-import { ColorSystem } from './ColorSystem';
 import emotionReset from 'emotion-reset';
 
 const style = css`
   ${emotionReset}
-  ${ColorSystem};
 
   html,
   body {
