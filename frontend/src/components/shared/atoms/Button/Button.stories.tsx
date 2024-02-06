@@ -23,3 +23,17 @@ export const Default: Story = {
     text: '입장하기',
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    text: '입장하기',
+    themes: 'disabled',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    text: '입장하기',
+    themes: 'ghost',
+  },
+};
