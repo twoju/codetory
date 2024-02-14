@@ -1,6 +1,6 @@
 import Button from '../components/shared/atoms/Button';
 
-function Home() {
+function Roadmap() {
   return (
     <>
       <Button text="입장하기" themes="default" />
@@ -8,4 +8,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Roadmap;
