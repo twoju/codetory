@@ -14,7 +14,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "types": ["@emotion/react/types/css-prop", "vite/client"],
+    "types": ["@emotion/react/types/css-prop", "vite/client", "vite-plugin-svgr/client"],
 
     /* Linting */
     "strict": true,
@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", ".storybook/*", "**/*.ts", "**/*.tsx", "svg.d.ts", "vite-env.d.ts"],
+  "include": ["src", ".storybook/*", "**/*.ts", "**/*.tsx", "custom.d.ts", "vite-env.d.ts"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
