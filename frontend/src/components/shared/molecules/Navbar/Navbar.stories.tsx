@@ -20,7 +20,6 @@ type Story = StoryObj<typeof Navbar>;
 
 export const Default: Story = {
   args: {
-    page: 'default',
-    title: '로드맵',
+    tab: 'home',
   },
 };
