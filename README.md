@@ -13,7 +13,7 @@
 |:--------:|:--------:|:--------:|:------:|
 |<img src="assets/vite.svg" width="100" />|<img src="assets/react.png" width="100" />|<img src="assets/ts.png" width="100" />|<img src="assets/nodejs.png" width="100" />|
 
-### Backend
-|FastAPI|
-|:--------:|
-|<img src="assets/fastapi.svg" width="100" />|
+### Backend & Deployment
+|FastAPI|Vercel|
+|:--------:|:--------:|
+|<img src="assets/fastapi.svg" width="100" />|<img src="assets/vercel.png" width="100" />|
