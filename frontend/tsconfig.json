@@ -14,7 +14,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "jsxImportSource": "@emotion/react",
-    "types": ["@emotion/react/types/css-prop", "vite/client", "vite-plugin-svgr/client"],
+    "types": ["./node_modules/@emotion/react/types/css-prop", "vite/client", "vite-plugin-svgr/client"],
 
     /* Linting */
     "strict": true,

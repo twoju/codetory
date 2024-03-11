@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.23.3",
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@storybook/builder-vite": "^7.6.6",
     "axios": "^1.6.7",
     "babel-plugin-emotion": "^11.0.0",
