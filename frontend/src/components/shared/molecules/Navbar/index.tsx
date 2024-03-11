@@ -1,32 +1,65 @@
 import { css } from '@emotion/react';
-import { gray3 } from '../../../../styles/ColorSystem';
+import FilledHome from '../../../../assets/svgs/filledHome.svg?react';
+import FilledStory from '../../../../assets/svgs/filledStory.svg?react';
+import FilledRoadmap from '../../../../assets/svgs/filledRoadmap.svg?react';
+import FilledMypage from '../../../../assets/svgs/filledMypage.svg?react';
+import LineHome from '../../../../assets/svgs/lineHome.svg?react';
+import LineStory from '../../../../assets/svgs/lineStory.svg?react';
+import LineRoadmap from '../../../../assets/svgs/lineRoadmap.svg?react';
+import LineMypage from '../../../../assets/svgs/lineMypage.svg?react';
+import { NavLink, useLocation } from 'react-router-dom';
 
-interface Props {
-  tab: 'home' | 'story' | 'roadmpa' | 'mypage';
-}
+function Navbar() {
+  const location = useLocation();
 
-function Navbar({ tab = 'home' }: Props) {
   return (
-    <div css={[Style, tab]}>
-      <div css={Nav}></div>
+    <div css={[Style]}>
+      <NavLink to={'/'} css={Nav}>
+        {location.pathname == '/' ? <FilledHome /> : <LineHome />}
+      </NavLink>
+      <NavLink to={'/story'} css={Nav}>
+        {location.pathname == '/story' ? <FilledStory /> : <LineStory />}
+      </NavLink>
+      <NavLink to={'/roadmap'} css={Nav}>
+        {location.pathname == '/roadmap' ? <FilledRoadmap /> : <LineRoadmap />}
+      </NavLink>
+      <NavLink to={'/mypage'} css={Nav}>
+        {location.pathname == '/mypage' ? <FilledMypage /> : <LineMypage />}
+      </NavLink>
     </div>
   );
 }
 
 const Style = css`
-  width: 100%;
+  width: min(100%, 430px);
   height: 72px;
+  position: fixed;
+  bottom: 0;
   background-color: '#ffffff';
-  font-size: 24px;
-  font-weight: 600;
-  font-style: normal;
-  color: ${gray3};
-  padding-top: 30px;
+  padding: 0 30px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px -4px 8px 0px rgba(224, 224, 224, 0.15);
+  padding: 0.7rem 0 calc(env(safe-area-inset-bottom) + 0.7rem) 0;
 `;
 
 const Nav = css`
-  padding-left: 30px;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  & > svg {
+    width: 3rem;
+    height: 3rem;
+    :hover {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
 `;
 
 export default Navbar;

@@ -5,12 +5,13 @@ import Story from '../pages/Story';
 import Roadmap from '../pages/Roadmap';
 import Mypage from '../pages/Mypage';
 import NotFound from '../pages/NotFound';
+import Navbar from '../components/shared/molecules/Navbar';
 
 /** 전체 페이지 라우터 컴포넌트 */
 const Router = () => {
   return (
     <BrowserRouter>
-    <HeaderWrapper />
+      <HeaderWrapper />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/story" element={<Story />} />
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
+      <NavbarWrapper />
     </BrowserRouter>
   );
 };
@@ -26,16 +28,37 @@ const HeaderWrapper = () => {
   const location = useLocation();
   switch (location.pathname) {
     case '/':
-      return <Header page='home' />
+      return <Header page="home" />;
     case '/story':
-      return <Header page='tab' title='이야기 보기' />
+      return <Header page="tab" title="이야기 보기" />;
     case '/roadmap':
-      return <Header page='tab' title='로드맵' />
+      return <Header page="tab" title="로드맵" />;
     case '/mypage':
-      return <Header page='tab' title='마이페이지' />
+      return <Header page="tab" title="마이페이지" />;
     default:
-      return <Header page='default' />
+      return <Header page="default" />;
   }
-}
+};
+
+const NavbarWrapper = () => {
+  const location = useLocation();
+
+  const checkPath = () => {
+    switch (location.pathname) {
+      case '/':
+        return true;
+      case '/story':
+        return true;
+      case '/roadmap':
+        return true;
+      case '/mypage':
+        return true;
+      default:
+        return false;
+    }
+  };
+
+  return checkPath() ? <Navbar /> : null;
+};
 
 export default Router;
