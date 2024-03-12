@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Header from '.';
+import CostBox from '../../molecules/CostBox';
 
 const meta: Meta<typeof Header> = {
   title: 'Molecule/Header',
@@ -9,7 +10,7 @@ const meta: Meta<typeof Header> = {
     componentSubtitle: '헤더 문서입니다.',
     docs: {
       description: {
-        component: `Header 에 대한 내용을 설명하기`,
+        component: `Header는 어플 상단에 위치하며 Router에서 path에 따라 형태가 달라집니다.`,
       },
     },
   },
@@ -22,5 +23,6 @@ export const Default: Story = {
   args: {
     page: 'default',
     title: '로드맵',
+    cost: <CostBox star={10} puzzle={10} />,
   },
 };

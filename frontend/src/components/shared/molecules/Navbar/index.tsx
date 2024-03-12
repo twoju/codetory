@@ -53,11 +53,11 @@ const Nav = css`
   justify-content: center;
   text-decoration: none;
   & > svg {
-    width: 3rem;
-    height: 3rem;
+    width: 2.6rem;
+    height: 2.6rem;
     :hover {
-      width: 3.2rem;
-      height: 3.2rem;
+      width: 2.8rem;
+      height: 2.8rem;
     }
   }
 `;
