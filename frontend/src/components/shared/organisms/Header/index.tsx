@@ -18,9 +18,10 @@ function Header({ page = 'default', title, cost }: Props) {
 }
 
 const Style = css`
-  width: 100%;
+  width: min(430px, 100%);
+  position: fixed;
   height: 72px;
-  background-color: '#ffffff';
+  background-color: transparent;
   font-size: 2.25rem;
   font-weight: 600;
   font-style: normal;
@@ -30,6 +31,8 @@ const Style = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 5;
+  position: relative;
 `;
 
 export default Header;
