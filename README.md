@@ -1,6 +1,8 @@
 # codetory
 ### 한국사와 컴퓨팅 사고력 연계 학습을 위한 초등학생 대상 게임 기반 교육용 서비스
 
+### 배포 URL : [https://www.codetory.site/](https://www.codetory.site/)
+
 ## 🔗 연구 논문
 [한국사와 코딩을 연계한 초등학생 대상 교육용 앱 서비스 - 스토리텔링과 비주얼씽킹 접목을 중심으로](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11444894)
 
