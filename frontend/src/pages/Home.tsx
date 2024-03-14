@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { adminApi } from '../apis';
 import { css } from '@emotion/react';
 import Button from '../components/shared/atoms/Button';
@@ -8,9 +8,10 @@ import Text from '../components/shared/atoms/Text';
 import Divider from '../components/shared/atoms/Divider';
 import QuestList from '../components/shared/organisms/QuestList';
 import quest01 from '../assets/pngs/quest01.png';
-import { black } from '../styles/ColorSystem';
 import MoreBtn from '../components/shared/atoms/MoreBtn';
 import TitleText from '../components/shared/atoms/TitleText';
+import StoryThumb from '../assets/pngs/storyThumb.png';
+import mouseSwipe from '../utils/mouseSwipe';
 
 const name = '준서';
 
@@ -32,7 +33,29 @@ const questListDummy = [
   },
 ];
 
+const storyListDummy = [
+  {
+    id: 1,
+    url: StoryThumb,
+  },
+  {
+    id: 2,
+    url: StoryThumb,
+  },
+  {
+    id: 3,
+    url: StoryThumb,
+  },
+  {
+    id: 4,
+    url: StoryThumb,
+  },
+];
+
 function Home() {
+  const tabSwipeRef = useRef<HTMLDivElement>(null);
+  mouseSwipe(tabSwipeRef);
+
   useEffect(() => {
     adminApi.homeTest().then((res) => console.log(res));
   }, []);
@@ -56,9 +79,17 @@ function Home() {
       </div>
       <Divider />
       <div css={VideoLayout}>
-        <TitleText title='추천 이야기' />
-        <div css={VideoDiv}></div>
-        <Button themes='ghost' text='다른 이야기' />
+        <div css={VideoTitle}>
+          <TitleText title="추천 이야기" />
+        </div>
+        <div css={VideoDiv} ref={tabSwipeRef}>
+          {storyListDummy.map((arr, idx) => (
+            <img src={arr.url} key={idx} css={VideoItem} alt="thumb" />
+          ))}
+        </div>
+        <div css={VideoBtn}>
+          <Button themes="ghost" text="다른 이야기" />
+        </div>
       </div>
     </div>
   );
@@ -66,6 +97,7 @@ function Home() {
 
 const HomeStyle = css`
   width: 100%;
+  margin-bottom: 8rem;
 `;
 
 const DivLayout = css`
@@ -107,12 +139,33 @@ const TitleDiv = css`
 `;
 
 const VideoLayout = css`
-  padding: 2.4rem 3rem 2.4rem 3rem;
+  padding: 2.4rem 0;
+  width: 100%;
+`;
+
+const VideoTitle = css`
+  margin-left: 3rem;
 `;
 
 const VideoDiv = css`
-  height: 10rem;
-  width: 6rem;
+  display: flex;
+  gap: 0.8rem;
+  margin: 2rem 0 2.4rem;
+  padding: 0 3rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  scroll-behavior: smooth;
+`;
+
+const VideoItem = css`
+  height: 21.3rem;
+  width: 12.4rem;
+  border-radius: 1rem;
+`;
+
+const VideoBtn = css`
+  margin: 0 3rem;
 `;
 
 export default Home;
