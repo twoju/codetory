@@ -13,7 +13,7 @@ function Navbar() {
   const location = useLocation();
 
   return (
-    <div css={[Style]}>
+    <div css={[NavStyle]}>
       <NavLink to={'/'} css={Nav}>
         {location.pathname == '/' ? <FilledHome /> : <LineHome />}
       </NavLink>
@@ -30,12 +30,13 @@ function Navbar() {
   );
 }
 
-const Style = css`
+const NavStyle = css`
+  z-index: 5;
   width: min(100%, 430px);
   height: 72px;
   position: fixed;
   bottom: 0;
-  background-color: '#ffffff';
+  background: white;
   padding: 0 30px;
   box-sizing: border-box;
   display: flex;
