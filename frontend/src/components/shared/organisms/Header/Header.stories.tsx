@@ -3,7 +3,7 @@ import Header from '.';
 import CostBox from '../../molecules/CostBox';
 
 const meta: Meta<typeof Header> = {
-  title: 'Molecule/Header',
+  title: 'Organism/Header',
   component: Header,
   parameters: {
     layout: 'fullscreen',
