@@ -5,8 +5,32 @@ import Button from '../components/shared/atoms/Button';
 import bg from '../assets/pngs/bg.png';
 import character from '../assets/pngs/character.png';
 import Text from '../components/shared/atoms/Text';
+import Divider from '../components/shared/atoms/Divider';
+import QuestList from '../components/shared/organisms/QuestList';
+import quest01 from '../assets/pngs/quest01.png';
+import { black } from '../styles/ColorSystem';
+import MoreBtn from '../components/shared/atoms/MoreBtn';
+import TitleText from '../components/shared/atoms/TitleText';
 
 const name = '준서';
+
+const questListDummy = [
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+];
 
 function Home() {
   useEffect(() => {
@@ -23,6 +47,19 @@ function Home() {
           <Button text="입장하기" themes="default" />
         </div>
       </div>
+      <div css={BottomLayout}>
+        <div css={TitleDiv}>
+          <TitleText title="오늘의 퀘스트" />
+          <MoreBtn url="/" />
+        </div>
+        <QuestList questList={questListDummy} />
+      </div>
+      <Divider />
+      <div css={VideoLayout}>
+        <TitleText title='추천 이야기' />
+        <div css={VideoDiv}></div>
+        <Button themes='ghost' text='다른 이야기' />
+      </div>
     </div>
   );
 }
@@ -34,7 +71,7 @@ const HomeStyle = css`
 const DivLayout = css`
   padding: 0 3rem;
   width: min(100%, 430px);
-  height: 580px;
+  height: 500px;
   position: absolute;
   box-sizing: border-box;
   top: 0;
@@ -54,6 +91,28 @@ const CharStyle = css`
 
 const DivBtn = css`
   padding-bottom: 2rem;
+`;
+
+const BottomLayout = css`
+  position: relative;
+  margin-top: 450px;
+  padding: 0 3rem 2.4rem 3rem;
+`;
+
+const TitleDiv = css`
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const VideoLayout = css`
+  padding: 2.4rem 3rem 2.4rem 3rem;
+`;
+
+const VideoDiv = css`
+  height: 10rem;
+  width: 6rem;
 `;
 
 export default Home;
