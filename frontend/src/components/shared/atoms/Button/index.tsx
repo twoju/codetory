@@ -1,6 +1,7 @@
 import { css } from '@emotion/react';
-import { gray2, main } from '../../../../styles/ColorSystem';
+import { gray1, gray2, main } from '../../../../styles/ColorSystem';
 import { ButtonHTMLAttributes } from 'react';
+import ReturnIcon from '../../../../assets/svgs/return.svg?react';
 
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   themes: 'default' | 'disabled' | 'ghost';
@@ -22,14 +23,27 @@ const themeStyles = {
   },
   ghost: {
     backgroundColor: 'transparent',
-    color: main,
-    borderRadius: '6rem',
-    border: `4px solid ${main}`,
+    color: gray1,
+    borderRadius: '3rem',
+    fontWeight: '600',
+    border: `1px solid ${gray1}`,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '1rem',
+    '&:hover': {
+      backgroundColor: 'rgba(85, 85, 85, 0.05)',
+    },
   },
 };
 
 function Button({ themes = 'default', text }: BtnProps) {
-  return <div css={[BtnStyle, themeStyles[themes]]}>{text}</div>;
+  return (
+    <div css={[BtnStyle, themeStyles[themes]]}>
+      {themes == 'ghost' && <ReturnIcon />}
+      {text}
+    </div>
+  );
 }
 
 const BtnStyle = css`

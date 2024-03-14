@@ -1,14 +1,61 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { adminApi } from '../apis';
 import { css } from '@emotion/react';
 import Button from '../components/shared/atoms/Button';
 import bg from '../assets/pngs/bg.png';
 import character from '../assets/pngs/character.png';
 import Text from '../components/shared/atoms/Text';
+import Divider from '../components/shared/atoms/Divider';
+import QuestList from '../components/shared/organisms/QuestList';
+import quest01 from '../assets/pngs/quest01.png';
+import MoreBtn from '../components/shared/atoms/MoreBtn';
+import TitleText from '../components/shared/atoms/TitleText';
+import StoryThumb from '../assets/pngs/storyThumb.png';
+import mouseSwipe from '../utils/mouseSwipe';
 
 const name = '준서';
 
+const questListDummy = [
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+  {
+    url: quest01,
+    title: '고려시대 벽란도 학습하기',
+    content: '오늘은 수학적으로 비교도 한대!',
+  },
+];
+
+const storyListDummy = [
+  {
+    id: 1,
+    url: StoryThumb,
+  },
+  {
+    id: 2,
+    url: StoryThumb,
+  },
+  {
+    id: 3,
+    url: StoryThumb,
+  },
+  {
+    id: 4,
+    url: StoryThumb,
+  },
+];
+
 function Home() {
+  const tabSwipeRef = useRef<HTMLDivElement>(null);
+  mouseSwipe(tabSwipeRef);
+
   useEffect(() => {
     adminApi.homeTest().then((res) => console.log(res));
   }, []);
@@ -23,18 +70,40 @@ function Home() {
           <Button text="입장하기" themes="default" />
         </div>
       </div>
+      <div css={BottomLayout}>
+        <div css={TitleDiv}>
+          <TitleText title="오늘의 퀘스트" />
+          <MoreBtn url="/" />
+        </div>
+        <QuestList questList={questListDummy} />
+      </div>
+      <Divider />
+      <div css={VideoLayout}>
+        <div css={VideoTitle}>
+          <TitleText title="추천 이야기" />
+        </div>
+        <div css={VideoDiv} ref={tabSwipeRef}>
+          {storyListDummy.map((arr, idx) => (
+            <img src={arr.url} key={idx} css={VideoItem} alt="thumb" />
+          ))}
+        </div>
+        <div css={VideoBtn}>
+          <Button themes="ghost" text="다른 이야기" />
+        </div>
+      </div>
     </div>
   );
 }
 
 const HomeStyle = css`
   width: 100%;
+  margin-bottom: 8rem;
 `;
 
 const DivLayout = css`
   padding: 0 3rem;
   width: min(100%, 430px);
-  height: 580px;
+  height: 500px;
   position: absolute;
   box-sizing: border-box;
   top: 0;
@@ -54,6 +123,49 @@ const CharStyle = css`
 
 const DivBtn = css`
   padding-bottom: 2rem;
+`;
+
+const BottomLayout = css`
+  position: relative;
+  margin-top: 450px;
+  padding: 0 3rem 2.4rem 3rem;
+`;
+
+const TitleDiv = css`
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const VideoLayout = css`
+  padding: 2.4rem 0;
+  width: 100%;
+`;
+
+const VideoTitle = css`
+  margin-left: 3rem;
+`;
+
+const VideoDiv = css`
+  display: flex;
+  gap: 0.8rem;
+  margin: 2rem 0 2.4rem;
+  padding: 0 3rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  cursor: grab;
+  scroll-behavior: smooth;
+`;
+
+const VideoItem = css`
+  height: 21.3rem;
+  width: 12.4rem;
+  border-radius: 1rem;
+`;
+
+const VideoBtn = css`
+  margin: 0 3rem;
 `;
 
 export default Home;
