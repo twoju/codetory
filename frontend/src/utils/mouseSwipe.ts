@@ -19,11 +19,11 @@ export default function mouseSwipe(dragRef: RefObject<HTMLElement>) {
     }
   };
   
-  const mouseTouchLeave = (e: MouseEvent | TouchEvent) => {
+  const mouseTouchLeave = () => {
     isClicked = false;
   };
 
-  const mouseTouchUp = (e: MouseEvent | TouchEvent) => {
+  const mouseTouchUp = () => {
     isClicked = false;
   };
 
