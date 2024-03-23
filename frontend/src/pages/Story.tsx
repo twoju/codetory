@@ -1,11 +1,16 @@
 import { css } from '@emotion/react';
+import ReactPlayer from 'react-player';
 import SortTab from '../components/story/molecules/SortTab';
 import Profile from '../components/story/molecules/Profile';
 import ImgDummy from '../assets/pngs/profile.png';
+import ReelTest from '../assets/reels01.mp4';
 
 function Story() {
   return (
     <div css={DivStyle}>
+      <div css={VideoStyle}>
+        <ReactPlayer url={ReelTest} width={'100%'} height={'auto'} playing={true} muted={true} loop={true} />
+      </div>
       <div css={TabStyle}>
         <SortTab level={0} />
       </div>
@@ -22,6 +27,13 @@ const DivStyle = css`
   height: 100vh;
   position: absolute;
   top: 0;
+`;
+
+const VideoStyle = css`
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
 const TabStyle = css`
