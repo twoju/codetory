@@ -37,12 +37,12 @@ const themeStyles = {
   },
 };
 
-function Button({ themes = 'default', text }: BtnProps) {
+function Button({ themes = 'default', text, ...props }: BtnProps) {
   return (
-    <div css={[BtnStyle, themeStyles[themes]]}>
+    <button css={[BtnStyle, themeStyles[themes]]} {...props}>
       {themes == 'ghost' && <ReturnIcon />}
       {text}
-    </div>
+    </button>
   );
 }
 
@@ -51,11 +51,12 @@ const BtnStyle = css`
   text-align: center;
   padding: 2rem 0;
   border-radius: 0.8rem;
-  background-color: ${main};
+  background: ${main};
   color: white;
   font-size: 2rem;
   font-weight: 700;
   cursor: pointer;
+  border: none;
 `;
 
 export default Button;
