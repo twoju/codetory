@@ -5,6 +5,8 @@ import ImgDummy from '../assets/pngs/profile.png';
 import ReelTest from '../assets/reels01.mp4';
 import { useState } from 'react';
 import BottomInfo from '../components/story/organisms/BottomInfo';
+import PlayBtn from '../assets/svgs/play.svg?react';
+import { gray2 } from '../styles/ColorSystem';
 
 function Story() {
   const [playState, setPlayState] = useState<boolean>(true);
@@ -23,7 +25,13 @@ function Story() {
           playing={playState}
           muted={true}
           loop={true}
+          pip={false}
         />
+        {!playState && (
+          <div css={PlayBtnStyle}>
+            <PlayBtn />
+          </div>
+        )}
       </div>
       <div css={TabStyle}>
         <SortTab level={0} />
@@ -53,6 +61,27 @@ const VideoStyle = css`
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+`;
+
+const PlayBtnStyle = css`
+  width: 8rem;
+  height: 8rem;
+  background: rgb(85, 85, 85, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  & > svg {
+    position: relative;
+    top: 50%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    & > path {
+      fill: ${gray2};
+      fill-opacity: 50%;
+    }
+  }
 `;
 
 const TabStyle = css`
