@@ -87,6 +87,8 @@ const PlayBtnStyle = css`
 const TabStyle = css`
   padding-left: 3rem;
   margin-top: 72px;
+  position: absolute;
+  top: 0;
 `;
 
 const BottomStyle = css`

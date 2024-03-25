@@ -67,6 +67,7 @@ const UnlikeStyle = css`
     fill-opacity: 0;
     fill: #f17148;
     transition: 0.2s;
+    cursor: pointer;
   }
 `;
 
