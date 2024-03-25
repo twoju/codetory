@@ -5,7 +5,6 @@ import LikeIcon from '../../../../assets/svgs/heart.svg?react';
 import CommentIcon from '../../../../assets/svgs/comment.svg?react';
 import ShareIcon from '../../../../assets/svgs/share.svg?react';
 import { useState } from 'react';
-import BottomSheet from '../../../shared/molecules/BottomSheet';
 
 interface Props {
   name: string;
