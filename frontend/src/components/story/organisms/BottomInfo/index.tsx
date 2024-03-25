@@ -12,21 +12,16 @@ interface Props {
   url: string;
   id: number;
   content: string;
+  onClose: () => void;
 }
 
 const dummyTags = ['벽란도', '고려시대', '퀘스트', '체험'];
 
-function BottomInfo({ name, url, id, content }: Props) {
+function BottomInfo({ name, url, id, content, onClose }: Props) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
-  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const likeHandler = () => {
     setIsLiked((pre) => !pre);
-    console.log(isLiked, 'islike');
-  };
-
-  const SheetHandler = () => {
-    setIsOpen((pre) => !pre);
   };
 
   return (
@@ -40,15 +35,10 @@ function BottomInfo({ name, url, id, content }: Props) {
           <div css={isLiked ? LikeStyle : UnlikeStyle}>
             <LikeIcon onClick={likeHandler} />
           </div>
-          <CommentIcon onClick={SheetHandler} />
+          <CommentIcon onClick={onClose} />
           <ShareIcon />
         </div>
       </div>
-      <BottomSheet
-        isOpen={isOpen}
-        onClose={SheetHandler}
-        children={<div></div>}
-      />
     </>
   );
 }
