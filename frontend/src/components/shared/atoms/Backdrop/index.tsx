@@ -1,13 +1,19 @@
 import { css } from '@emotion/react';
 
-function Backdrop() {
-  return <div css={DivStyle}></div>;
+interface Props {
+  onClose?: () => void;
+}
+
+function Backdrop({ onClose }: Props) {
+  return <div css={DivStyle} onClick={onClose}></div>;
 }
 
 const DivStyle = css`
   background: rgb(85, 85, 85, 0.7);
-  width: 100%;
-  height: 100%;
+  width: min(100%, 430px);
+  height: 100vh;
+  position: fixed;
+  top: 0;
 `;
 
 export default Backdrop;

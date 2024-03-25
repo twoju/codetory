@@ -5,6 +5,7 @@ import LikeIcon from '../../../../assets/svgs/heart.svg?react';
 import CommentIcon from '../../../../assets/svgs/comment.svg?react';
 import ShareIcon from '../../../../assets/svgs/share.svg?react';
 import { useState } from 'react';
+import BottomSheet from '../../../shared/molecules/BottomSheet';
 
 interface Props {
   name: string;
@@ -17,26 +18,38 @@ const dummyTags = ['벽란도', '고려시대', '퀘스트', '체험'];
 
 function BottomInfo({ name, url, id, content }: Props) {
   const [isLiked, setIsLiked] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const likeHandler = () => {
     setIsLiked((pre) => !pre);
     console.log(isLiked, 'islike');
   };
 
+  const SheetHandler = () => {
+    setIsOpen((pre) => !pre);
+  };
+
   return (
-    <div css={DivStyle}>
-      <div css={LeftBox}>
-        <Profile name={name} url={url} id={id} />
-        <ContentTab tags={dummyTags} content={content} />
-      </div>
-      <div css={RightBox}>
-        <div css={isLiked ? LikeStyle : UnlikeStyle}>
-          <LikeIcon onClick={likeHandler} />
+    <>
+      <div css={DivStyle}>
+        <div css={LeftBox}>
+          <Profile name={name} url={url} id={id} />
+          <ContentTab tags={dummyTags} content={content} />
         </div>
-        <CommentIcon />
-        <ShareIcon />
+        <div css={RightBox}>
+          <div css={isLiked ? LikeStyle : UnlikeStyle}>
+            <LikeIcon onClick={likeHandler} />
+          </div>
+          <CommentIcon onClick={SheetHandler} />
+          <ShareIcon />
+        </div>
       </div>
-    </div>
+      <BottomSheet
+        isOpen={isOpen}
+        onClose={SheetHandler}
+        children={<div></div>}
+      />
+    </>
   );
 }
 
@@ -45,6 +58,8 @@ const DivStyle = css`
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
+  padding: 0 3rem;
+  box-sizing: border-box;
 `;
 
 const LeftBox = css`
@@ -67,6 +82,7 @@ const UnlikeStyle = css`
     fill-opacity: 0;
     fill: #f17148;
     transition: 0.2s;
+    cursor: pointer;
   }
 `;
 

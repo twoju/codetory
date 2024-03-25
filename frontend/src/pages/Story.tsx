@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import ReactPlayer from 'react-player';
 import SortTab from '../components/story/molecules/SortTab';
 import ImgDummy from '../assets/pngs/profile.png';
@@ -6,18 +6,33 @@ import ReelTest from '../assets/reels01.mp4';
 import { useState } from 'react';
 import BottomInfo from '../components/story/organisms/BottomInfo';
 import PlayBtn from '../assets/svgs/play.svg?react';
+import PauseBtn from '../assets/svgs/pause.svg?react';
 import { gray2 } from '../styles/ColorSystem';
 
 function Story() {
   const [playState, setPlayState] = useState<boolean>(true);
+  const [isHover, setIsHover] = useState<boolean>(false);
 
   const playingHandler = () => {
     setPlayState((pre) => !pre);
   };
 
+  const hoverHandler = () => {
+    setIsHover(() => true);
+  };
+
+  const unhoverHandler = () => {
+    setIsHover(() => false);
+  };
+
   return (
     <div css={DivStyle}>
-      <div css={VideoStyle} onClick={playingHandler}>
+      <div
+        css={VideoStyle}
+        onClick={playingHandler}
+        onMouseOver={hoverHandler}
+        onMouseOut={unhoverHandler}
+      >
         <ReactPlayer
           url={ReelTest}
           width={'100%'}
@@ -27,15 +42,19 @@ function Story() {
           loop={true}
           pip={false}
         />
-        {!playState && (
-          <div css={PlayBtnStyle}>
+        {playState ? (
+          isHover && (
+            <div css={PlayBtnStyle}>
+              <PauseBtn />
+            </div>
+          )
+        ) : (
+          <div css={[PlayBtnStyle, !playState && PlayDisappear]}>
             <PlayBtn />
           </div>
         )}
       </div>
-      <div css={TabStyle}>
-        <SortTab level={0} />
-      </div>
+      <div css={TabStyle}>{!playState && <SortTab level={0} />}</div>
       <div css={BottomStyle}>
         <BottomInfo
           name={'6_seo'}
@@ -63,6 +82,15 @@ const VideoStyle = css`
   transform: translateY(-50%);
 `;
 
+const Disappear = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
 const PlayBtnStyle = css`
   width: 8rem;
   height: 8rem;
@@ -81,16 +109,26 @@ const PlayBtnStyle = css`
       fill: ${gray2};
       fill-opacity: 50%;
     }
+    & > g > path {
+      fill: ${gray2};
+      fill-opacity: 50%;
+    }
   }
+`;
+
+const PlayDisappear = css`
+  animation: ${Disappear} 0.3s ease-in-out forwards;
+  animation-delay: 1s;
 `;
 
 const TabStyle = css`
   padding-left: 3rem;
   margin-top: 72px;
+  position: absolute;
+  top: 0;
 `;
 
 const BottomStyle = css`
-  padding: 0 3rem;
   box-sizing: border-box;
   width: 100%;
   position: absolute;

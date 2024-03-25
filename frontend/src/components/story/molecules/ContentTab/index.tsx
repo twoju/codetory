@@ -17,6 +17,7 @@ function ContentTab({ content, tags }: Props) {
 }
 
 const divStyle = css`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
