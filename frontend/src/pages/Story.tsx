@@ -72,6 +72,7 @@ const DivStyle = css`
   width: 100%;
   height: 100vh;
   position: absolute;
+  overflow: clip;
   top: 0;
 `;
 
