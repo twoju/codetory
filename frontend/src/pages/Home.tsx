@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { adminApi } from '../apis';
 import { css } from '@emotion/react';
 import Button from '../components/shared/atoms/Button';
@@ -12,6 +12,7 @@ import MoreBtn from '../components/shared/atoms/MoreBtn';
 import TitleText from '../components/shared/atoms/TitleText';
 import StoryThumb from '../assets/pngs/storyThumb.png';
 import mouseSwipe from '../utils/mouseSwipe';
+import AlertModal from '../components/shared/molecules/AlertModal';
 
 const name = '준서';
 
@@ -54,11 +55,17 @@ const storyListDummy = [
 
 function Home() {
   const tabSwipeRef = useRef<HTMLDivElement>(null);
+  const [isAlert, setIsAlert] = useState<boolean>(false);
   mouseSwipe(tabSwipeRef);
 
   useEffect(() => {
     adminApi.homeTest().then((res) => console.log(res));
   }, []);
+
+  const alertHandler = () => {
+    setIsAlert((pre) => !pre);
+    console.log('clicked');
+  };
   return (
     <div css={HomeStyle}>
       <div css={DivLayout}>
@@ -67,7 +74,7 @@ function Home() {
         </div>
         <img src={character} css={CharStyle} alt="character" />
         <div css={DivBtn}>
-          <Button text="입장하기" themes="default" />
+          <Button text="입장하기" themes="default" onClick={alertHandler} />
         </div>
       </div>
       <div css={BottomLayout}>
@@ -91,6 +98,12 @@ function Home() {
           <Button themes="ghost" text="다른 이야기" />
         </div>
       </div>
+      <AlertModal
+        isOpen={isAlert}
+        onClose={alertHandler}
+        title={'앗! 준비중이에요'}
+        content={'아직 개발 진행 중인 기능입니다.'}
+      />
     </div>
   );
 }
