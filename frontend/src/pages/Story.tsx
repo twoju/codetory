@@ -9,6 +9,7 @@ import PlayBtn from '../assets/svgs/play.svg?react';
 import PauseBtn from '../assets/svgs/pause.svg?react';
 import { gray2 } from '../styles/ColorSystem';
 import BottomSheet from '../components/shared/molecules/BottomSheet';
+import CommentInput from '../components/story/molecules/CommentInput';
 
 function Story() {
   const [playState, setPlayState] = useState<boolean>(true);
@@ -76,7 +77,11 @@ function Story() {
       <BottomSheet
         isOpen={isOpen}
         onClose={sheetHandler}
-        children={<div></div>}
+        children={
+          <div>
+            <CommentInput />
+          </div>
+        }
       />
     </div>
   );

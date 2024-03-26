@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import { black, gray2, main } from '../../../../styles/ColorSystem';
 import DeleteBtn from '../../../../assets/svgs/delete.svg?react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
   placehold: string;
@@ -9,12 +9,16 @@ interface Props {
 }
 function Input({ placehold, setInput }: Props) {
   const [textVal, setTextVal] = useState<string>('');
-  const areaChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+
+  useEffect(() => {
+    setInput(textVal);
+  }, [textVal]);
+
+  const textChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextVal(() => e.target.value);
-    setInput(e.target.value);
   };
 
-  const deleteTextHandler = () => {
+  const textDeleteHandler = () => {
     setTextVal(() => '');
   };
 
@@ -23,14 +27,16 @@ function Input({ placehold, setInput }: Props) {
       <textarea
         typeof="search"
         css={DivStyle}
-        onChange={areaChangeHandler}
+        onChange={textChangeHandler}
         rows={1}
         placeholder={placehold}
         value={textVal}
       ></textarea>
-      <div css={DeleteStyle} onClick={deleteTextHandler}>
-        <DeleteBtn />
-      </div>
+      {textVal && (
+        <div css={DeleteStyle} onClick={textDeleteHandler}>
+          <DeleteBtn />
+        </div>
+      )}
     </div>
   );
 }
