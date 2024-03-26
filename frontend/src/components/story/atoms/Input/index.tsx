@@ -1,31 +1,32 @@
 import { css } from '@emotion/react';
 import { black, gray2, main } from '../../../../styles/ColorSystem';
 import DeleteBtn from '../../../../assets/svgs/delete.svg?react';
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 
 interface Props {
   placehold: string;
   setInput: (value: string) => void;
 }
 function Input({ placehold, setInput }: Props) {
-  const textValue = useRef<HTMLTextAreaElement | null>(null);
+  const [textVal, setTextVal] = useState<string>('');
   const areaChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setTextVal(() => e.target.value);
     setInput(e.target.value);
   };
 
   const deleteTextHandler = () => {
-    textValue.current?.value;
+    setTextVal(() => '');
   };
 
   return (
     <div css={Container}>
       <textarea
-        ref={textValue}
         typeof="search"
         css={DivStyle}
         onChange={areaChangeHandler}
         rows={1}
         placeholder={placehold}
+        value={textVal}
       ></textarea>
       <div css={DeleteStyle} onClick={deleteTextHandler}>
         <DeleteBtn />
