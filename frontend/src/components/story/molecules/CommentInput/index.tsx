@@ -5,10 +5,21 @@ import { useState } from 'react';
 
 function CommentInput() {
   const [text, setText] = useState<string>('');
+
+  const buttonClickHandler = () => {
+    console.log('clicked', text);
+  };
+
   return (
     <div css={DivStyle}>
       <Input placehold={'댓글을 입력해주세요'} setInput={setText} />
-      <button css={[BtnStyle, text && BtnColor]}>등록</button>
+      <button
+        css={[BtnStyle, text && BtnColor]}
+        disabled={text ? false : true}
+        onClick={buttonClickHandler}
+      >
+        등록
+      </button>
     </div>
   );
 }
@@ -31,6 +42,7 @@ const BtnStyle = css`
 const BtnColor = css`
   color: ${main};
   font-weight: 500;
+  cursor: pointer;
 `;
 
 export default CommentInput;
