@@ -15,10 +15,11 @@ function BottomSheet({ isOpen, onClose, children }: Props) {
   return (
     <div css={DivStyle}>
       <Backdrop onClose={onClose} />
-      <div
-        css={[SheetStyle, isOpen ? CloseAnimation : OpenAnimation]}
-        onClick={onClose}
-      >
+      <div css={SheetStyle}>
+        <div
+          css={[ClickStyle, isOpen ? CloseAnimation : OpenAnimation]}
+          onClick={onClose}
+        ></div>
         <div css={ChildStyle}>{children}</div>
       </div>
     </div>
@@ -58,8 +59,15 @@ const SheetStyle = css`
   bottom: 0;
   background: white;
   border-radius: 1.6rem 1.6rem 0 0;
-  padding: 2.5rem;
+  padding: 3rem 2.5rem 0 2.5rem;
   box-sizing: border-box;
+`;
+
+const ClickStyle = css`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
 `;
 
 const OpenAnimation = css`
@@ -70,6 +78,10 @@ const CloseAnimation = css`
   animation: ${FadeOut} 0.3s ease-in-out forwards;
 `;
 
-const ChildStyle = css``;
+const ChildStyle = css`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
 
 export default BottomSheet;
