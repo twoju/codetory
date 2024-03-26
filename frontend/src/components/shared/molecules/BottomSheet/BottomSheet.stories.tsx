@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import BottomSheet from '.';
-import CommentInput from '../../../story/molecules/CommentInput';
+import Comment from '../../../story/organisms/Comment';
 
 const meta: Meta<typeof BottomSheet> = {
   title: 'Molecule/BottomSheet',
@@ -21,6 +21,6 @@ type Story = StoryObj<typeof BottomSheet>;
 
 export const Default: Story = {
   args: {
-    children: <CommentInput />,
+    children: <Comment />,
   },
 };

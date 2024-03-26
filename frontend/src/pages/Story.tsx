@@ -9,7 +9,7 @@ import PlayBtn from '../assets/svgs/play.svg?react';
 import PauseBtn from '../assets/svgs/pause.svg?react';
 import { gray2 } from '../styles/ColorSystem';
 import BottomSheet from '../components/shared/molecules/BottomSheet';
-import CommentInput from '../components/story/molecules/CommentInput';
+import Comment from '../components/story/organisms/Comment';
 
 function Story() {
   const [playState, setPlayState] = useState<boolean>(true);
@@ -78,9 +78,7 @@ function Story() {
         isOpen={isOpen}
         onClose={sheetHandler}
         children={
-          <div>
-            <CommentInput />
-          </div>
+          <Comment />
         }
       />
     </div>
@@ -119,6 +117,7 @@ const Disappear = keyframes`
 `;
 
 const PlayBtnStyle = css`
+  pointer-events: none;
   width: 8rem;
   height: 8rem;
   background: rgb(85, 85, 85, 0.5);

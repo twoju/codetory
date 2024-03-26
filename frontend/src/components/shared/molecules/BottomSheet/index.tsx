@@ -59,14 +59,15 @@ const SheetStyle = css`
   bottom: 0;
   background: white;
   border-radius: 1.6rem 1.6rem 0 0;
-  padding: 2.5rem;
+  padding: 3rem 2.5rem 0 2.5rem;
   box-sizing: border-box;
 `;
 
 const ClickStyle = css`
-  width: min(100%, 380px);
+  width: 100%;
   height: 100%;
   position: absolute;
+  left: 0;
 `;
 
 const OpenAnimation = css`
@@ -79,6 +80,8 @@ const CloseAnimation = css`
 
 const ChildStyle = css`
   position: relative;
+  width: 100%;
+  height: 100%;
 `;
 
 export default BottomSheet;
