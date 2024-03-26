@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { css } from '@emotion/react';
 import Profile from '../../molecules/Profile';
 import ContentTab from '../../molecules/ContentTab';
 import LikeIcon from '../../../../assets/svgs/heart.svg?react';
 import CommentIcon from '../../../../assets/svgs/comment.svg?react';
 import ShareIcon from '../../../../assets/svgs/share.svg?react';
-import { useState } from 'react';
 
 interface Props {
   name: string;
