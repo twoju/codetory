@@ -64,7 +64,6 @@ function Home() {
 
   const alertHandler = () => {
     setIsAlert((pre) => !pre);
-    console.log('clicked');
   };
   return (
     <div css={HomeStyle}>
