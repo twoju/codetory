@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
+from backend.routers import quest
+
 app = FastAPI()
 
-@app.get("/hello")
-async def hello():
-    return {"message" : "hello"}
+app.include_router(quest.router)
