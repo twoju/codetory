@@ -12,3 +12,7 @@ router = APIRouter()
 async def create_user(user_body: user_schema.UserCreate, db: AsyncSession = Depends(get_db)):
     return await user_crud.create_user(db, user_body)
 
+
+@router.get("/users/{user_id}", response_model=user_schema.User)
+async def get_user(user_id: int, db: AsyncSession = Depends(get_db)):
+    return await user_crud.get_user_info(db, user_id)
