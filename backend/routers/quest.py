@@ -8,6 +8,6 @@ router = APIRouter()
 async def list_quests():
     return [quest_schema.Quest(id=1, title="첫 번째 퀘스트")]
 
-@router.put("/quests/{quest_id}/done")
-async def quest_done():
-    pass
+@router.put("/quests/{quest_id}/done", response_model=None)
+async def quest_done(quest_id: int):
+    return
