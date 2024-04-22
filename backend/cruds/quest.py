@@ -1,13 +1,13 @@
-from sqlalchemy.orm import Session
 from sqlalchemy import select
 from sqlalchemy.engine import Result
+from sqlalchemy.ext.asyncio import AsyncSession
 
 import backend.models.quest as quest_model
 import backend.schemas.quest as quest_schema
 
 
-def get_quests_with_done(db: Session) -> list[tuple[int, str, bool]]:
-    result: Result = db.execute(
+async def get_quests_with_done(db: AsyncSession) -> list[tuple[int, str, bool]]:
+    result: Result = await db.execute(
         select(
             quest_model.Quest.id,
             quest_model.Quest.title,
@@ -17,17 +17,17 @@ def get_quests_with_done(db: Session) -> list[tuple[int, str, bool]]:
     return result.all()
 
 
-def get_done(db: Session, quest_id: int) -> quest_model.Done | None:
-    result: Result = db.execute(
+async def get_done(db: AsyncSession, quest_id: int) -> quest_model.Done | None:
+    result: Result = await db.execute(
         select(quest_model.Done).filter(quest_model.Done.id == quest_id)
     )
     return result.scalars().first()
 
 
-def create_done(db: Session, quest_id: int) -> quest_model.Done:
+async def create_done(db: AsyncSession, quest_id: int) -> quest_model.Done:
     done = quest_model.Done(id=quest_id)
     db.add(done)
-    db.commit()
-    db.refresh(done)
+    await db.commit()
+    await db.refresh(done)
     return done
 
