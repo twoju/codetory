@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from backend.routers import quest
+from backend.routers import quest, user
 
 app = FastAPI()
 origins = [
@@ -17,3 +17,4 @@ app.add_middleware(
 )
 
 app.include_router(quest.router)
+app.include_router(user.router)
