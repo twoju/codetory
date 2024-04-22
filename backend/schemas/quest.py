@@ -11,3 +11,10 @@ class Quest(QuestBase):
 
     class Config:
         orm_mode = True
+
+
+class DoneRes(BaseModel):
+    id: int
+
+    class Config:
+        orm_mode = True
