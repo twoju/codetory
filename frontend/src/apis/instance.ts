@@ -3,7 +3,7 @@ import Axios from 'axios';
 // export const BASE_URL = process.env.REACT_APP_HOST;
 
 const axiosInstance = Axios.create({
-  baseURL: `http://127.0.0.1:8000`,
+  baseURL: `http://0.0.0.0:8000/`,
   headers: {
     'Content-Type': 'application/json',
   },

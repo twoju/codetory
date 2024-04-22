@@ -8,6 +8,10 @@ from backend.db import get_db
 
 router = APIRouter()
 
+@router.get("/")
+def test():
+    return {"msg": "hi"}
+
 @router.get("/quests", response_model=list[quest_schema.Quest])
 async def list_quests(db: AsyncSession = Depends(get_db)):
     return await quest_crud.get_quests_with_done(db)
