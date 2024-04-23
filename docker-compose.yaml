@@ -9,6 +9,8 @@ services:
       - 8000:8000
     environment:
       - WATCHFILES_FORCE_POLLING=true
+      - NAVER_CLIENT_ID=${NAVER_CLIENT_ID}
+      - NAVER_CLIENT_SECRET=${NAVER_CLIENT_SECRET}
   db:
     image: mysql:8.0
     platform: linux/x86_64

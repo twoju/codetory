@@ -59,7 +59,7 @@ function Home() {
   mouseSwipe(tabSwipeRef);
 
   useEffect(() => {
-    adminApi.homeTest().then((res) => console.log(res));
+    // adminApi.getUserInfo(2).then((res) => console.log(res));
   }, []);
 
   const alertHandler = () => {

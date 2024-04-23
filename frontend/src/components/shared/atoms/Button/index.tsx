@@ -4,7 +4,8 @@ import { ButtonHTMLAttributes } from 'react';
 import ReturnIcon from '../../../../assets/svgs/return.svg?react';
 
 interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  themes: 'default' | 'disabled' | 'ghost';
+  children?: string;
+  themes: 'default' | 'disabled' | 'ghost' | 'login';
   text: string;
 }
 
@@ -35,11 +36,16 @@ const themeStyles = {
       backgroundColor: 'rgba(85, 85, 85, 0.05)',
     },
   },
+  login: {
+    backgroundColor: '#03C75A',
+    padding: '0',
+  },
 };
 
-function Button({ themes = 'default', text, ...props }: BtnProps) {
+function Button({ themes = 'default', text, children, ...props }: BtnProps) {
   return (
     <button css={[BtnStyle, themeStyles[themes]]} {...props}>
+      {children && <img src={children} alt="logo" />}
       {themes == 'ghost' && <ReturnIcon />}
       {text}
     </button>
@@ -57,6 +63,14 @@ const BtnStyle = css`
   font-weight: 700;
   cursor: pointer;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & > img {
+    max-width: 64px;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
 `;
 
 export default Button;
