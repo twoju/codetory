@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { adminApi } from '../apis';
+// import { adminApi } from '../apis';
 import { css } from '@emotion/react';
 import Button from '../components/shared/atoms/Button';
 import bg from '../assets/pngs/bg.png';
