@@ -1,5 +1,5 @@
 import Button from '../components/shared/atoms/Button';
-import NaverLogo from '../assets/pngs/btnG_아이콘원형.png';
+import NaverLogo from '../assets/pngs/btnG.png';
 import CTLogo from '../assets/svgs/logo.svg?react';
 import { css } from '@emotion/react';
 
