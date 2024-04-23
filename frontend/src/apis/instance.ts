@@ -1,7 +1,5 @@
 import Axios from 'axios';
 
-// export const BASE_URL = process.env.REACT_APP_HOST;
-
 const axiosInstance = Axios.create({
   baseURL: `http://0.0.0.0:8000/`,
   headers: {

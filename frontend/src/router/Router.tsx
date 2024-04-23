@@ -7,6 +7,8 @@ import Mypage from '../pages/Mypage';
 import NotFound from '../pages/NotFound';
 import Navbar from '../components/shared/molecules/Navbar';
 import CostBox from '../components/shared/molecules/CostBox';
+import Login from '../pages/Login';
+import NaverLogin from '../pages/NaverLogin';
 
 /** 전체 페이지 라우터 컴포넌트 */
 const Router = () => {
@@ -14,6 +16,8 @@ const Router = () => {
     <BrowserRouter>
       <HeaderWrapper />
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/login/callback" element={<NaverLogin />} />
         <Route path="/" element={<Home />} />
         <Route path="/story" element={<Story />} />
         <Route path="/roadmap" element={<Roadmap />} />
@@ -30,6 +34,8 @@ const HeaderWrapper = () => {
   switch (location.pathname) {
     case '/':
       return <Header page="home" cost={<CostWrapper />} />;
+    case '/login':
+      return <Header page="tab" title="시작하기" />;
     case '/story':
       return <Header page="tab" title="이야기 보기" />;
     case '/roadmap':
